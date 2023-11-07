@@ -218,13 +218,14 @@ $facilities = getFieldValues("facility");
 			<table>
 				<thead>
 					<tr>
-						<th colspan='4'><b>ANTIMICROBIAL SUSCEPTIBILITIES</b></th>
+						<th colspan='5'><b>ANTIMICROBIAL SUSCEPTIBILITIES</b></th>
 					</tr>
 					<tr>
 						<th></th>
 						<th><b>Result</b></th>
 						<th><b>S/I/R Interpretation</b></th>
 						<th><b>MIC (μg/ml) or KB (mm)</b></th>
+						<th><b>Date</b></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -240,6 +241,7 @@ $facilities = getFieldValues("facility");
 							$val_1 = $lab["numeric_result_val"];
 							$val_2 = $lab["result_units"];
 							$val_3 = $lab["test_method_cd"];
+							$date = $lab["specimen_collection_dt"];
 							$val = "";
 							if (!empty($val_1))
 								$val .= "<br>" . $val_1;
@@ -259,8 +261,9 @@ $facilities = getFieldValues("facility");
 						<td>$result</td>
 						<td>$sir</td>
 						<td>$val</td>
+						<td>$date</td>
 					</tr>";
-							unset($test, $result, $sir, $val_1, $val_2, $val_3, $val, $class);
+							unset($test, $result, $sir, $val_1, $val_2, $val_3, $date, $val, $class);
 						}
 						
 					?>
